@@ -1,0 +1,25 @@
+{
+  "name": "dropdown-module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MissLiner/dropdown-module.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MissLiner/dropdown-module/issues"
+  },
+  "homepage": "https://github.com/MissLiner/dropdown-module#readme",
+  "devDependencies": {
+    "eslint": "^8.2.0",
+    "webpack": "^5.64.1",
+    "wepack-cli": "^0.0.1-security"
+  }
+}
