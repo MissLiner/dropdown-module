@@ -21,3 +21,7 @@ function makeDropdown(button, menu) {
 }
 
 makeDropdown(dropdownMenuBtn, dropdownMenu);
+
+export {
+    makeDropdown,
+}
