@@ -1,7 +1,7 @@
 {
   "name": "dropdown-module",
   "version": "1.0.0",
-  "description": "",
+  "description": "Adds basic function for dropdown menus",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
