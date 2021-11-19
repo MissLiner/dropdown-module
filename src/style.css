@@ -1,6 +1,6 @@
 .hidden {
     display: none;
 }
-.dd-button {
-    display: inline-block;
+.dropdown-btn {
+    display: block;
 }
