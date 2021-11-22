@@ -1,26 +1,31 @@
 ## <make-this/dropdown>
+*Created as part of The Odin Project coding curriculum*
 
-Simple module to add dropdown functionality to your menu. Created as part of The Odin Project
-coding curriculum.
+Simple module to add dropdown functionality to your menu:
+  -show menu on button click
+  -hide menu on next subsequent click (anywhere on page)
 
 ### Instructions
 
-1. Build the HTML elements, as below (make sure you add 'hidden' to the dropdown div):
+1. Build the HTML elements, as below (make sure you add the classes):
 
     ```
     <div>
-      <button id="button">              //this button will be clicked to open menu
-      <div id="menu" class="hidden">    //this div will contain all buttons to dropdown
-        <button> . . .                  //as many buttons as needed
+      <button id="button">                  //button to open menu
+      <div id="menu" class="hidden">        //div containing dropdown buttons
+        <button class="vertical"> . . .     //as many buttons as needed
       </div>
     </div>
     ```
 
-2. Add the hidden class in CSS:
+2. Add the hidden & vertical classes in CSS:
 
     ```
+    .vertical {
+      display: block;
+    }
     .hidden {
-    display: none;
+      display: none;
     }
     ```
 
@@ -30,9 +35,9 @@ coding curriculum.
 
 3. Import the function into your .js file:
 
-  `import { makeItDropdown } from "make-this/dropdown"`
+  `import { makeItDropdown } from "make-this/src/dropdown"`
 
-4. Make the menu dropdown with:
+4. Use your button and menu ids to make it **drop**:
 
   `makeItDropdown(button, menu);`
 

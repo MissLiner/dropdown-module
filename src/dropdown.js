@@ -5,12 +5,26 @@ function makeThisDropdown(button, menu) {
     function hide(divName) {
         divName.classList.add('hidden');
     }
+    function addClickOutListener(button, menu) {
+        document.addEventListener(
+          "click",
+          (e) => {
+            hide(menu);
+            if (e.target === button) {
+              e.stopPropagation();
+            }
+          },
+          {
+            once: true,
+            capture: true,
+          }
+        );
+      }
 
     button.addEventListener('click', () => {
         if (menu.classList.contains('hidden')) {
             show(menu);
-        } else {
-            hide(menu);
+            addClickOutListener(button, menu);
         }
     })
 }
