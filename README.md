@@ -1,9 +1,9 @@
 ## <make-this/dropdown>
-*Created as part of The Odin Project coding curriculum*
+*created as part of The Odin Project coding curriculum*
 
 Simple module to add dropdown functionality to your menu:
-  -show menu on button click
-  -hide menu on next subsequent click (anywhere on page)
+  - show menu on button click
+  - hide menu on next subsequent click (anywhere on page)
 
 ### Instructions
 
@@ -43,4 +43,4 @@ Simple module to add dropdown functionality to your menu:
 
 ### Questions or feedback?
 
-      contact: [miss.liner@yahoo.com](mailto:miss.liner@yahoo.com)
+contact: [miss.liner@yahoo.com](mailto:miss.liner@yahoo.com)
