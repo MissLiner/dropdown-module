@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Adds basic function for dropdown menus",
   "main": "index.js",
+  "author": "In the City Web <inthecity_webcreations>",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack"
