@@ -1,24 +1,23 @@
 {
-  "name": "dropdown-module",
+  "name": "make-this",
   "version": "1.0.0",
   "description": "Adds basic function for dropdown menus",
   "main": "index.js",
-  "author": "In the City Web <inthecity_webcreations>",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MissLiner/dropdown-module.git"
+    "url": "git+https://github.com/MissLiner/make-this.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "In the City Web <inthecity_webcreations>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MissLiner/dropdown-module/issues"
+    "url": "https://github.com/MissLiner/make-this/issues"
   },
-  "homepage": "https://github.com/MissLiner/dropdown-module#readme",
+  "homepage": "https://github.com/MissLiner/make-this#readme",
   "devDependencies": {
     "css-loader": "^6.5.1",
     "eslint": "^8.2.0",
