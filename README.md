@@ -31,16 +31,16 @@ Simple module to add dropdown functionality to your menu:
 
 3. Install:
 
-  `$ npm install make-this --save-dev`
+      `$ npm install make-this --save-dev`
 
-3. Import the function into your .js file:
+4. Import the function into your .js file:
 
-  `import { makeItDropdown } from "make-this/src/dropdown"`
+      `import { makeItDropdown } from "make-this/src/dropdown"`
 
-4. Use your button and menu ids to make it **drop**:
+5. Use your button and menu ids to make it **drop**:
 
-  `makeItDropdown(button, menu);`
+      `makeItDropdown(button, menu);`
 
 ### Questions or feedback?
 
-contact: [miss.liner@yahoo.com](mailto:miss.liner@yahoo.com)
+      contact: [miss.liner@yahoo.com](mailto:miss.liner@yahoo.com)
