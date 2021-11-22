@@ -1,9 +1,9 @@
-## MAKE IT: DROPDOWN
+## MAKE IT: Dropdown
 
 Simple module to add dropdown functionality to your menu. Created as part of The Odin Project
 coding curriculum.
 
-### INSTRUCTIONS
+### Instructions
 
 1. Build the HTML elements, as below (make sure you add 'hidden' to the dropdown div):
 
@@ -11,7 +11,7 @@ coding curriculum.
     <div>
       <button id="button">              //this button will be clicked to open menu
       <div id="menu" class="hidden">    //this div will contain all buttons to dropdown
-        <button> . . .                //as many buttons as needed
+        <button> . . .                  //as many buttons as needed
       </div>
     </div>
     ```
@@ -32,6 +32,6 @@ coding curriculum.
 
     `makeItDropdown(button, menu);`
 
-### QUESTIONS OR FEEDBACK?
+### Questions or feedback?
 
 contact: [miss.liner@yahoo.com](mailto:miss.liner@yahoo.com)
