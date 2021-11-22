@@ -1,6 +1,7 @@
 MAKE IT: DROPDOWN
 
-Simple module to add dropdown functionality to your menu.
+Simple module to add dropdown functionality to your menu. Created as part of The Odin Project
+coding curriculum.
 
 PREREQUISITES
 
@@ -19,14 +20,18 @@ PREREQUISITES
 
 INSTRUCTIONS
 
-Add this code to your .js file:
+1. Build the HTML elements, structured as above (make sure you add 'hidden' to the dropdown div).
+
+2. Add the hidden class in CSS.
+
+3. Import the function into your .js file:
 
     import { makeItDropdown } from "./makeit"
 
-Make any menu dropdown with:
+4. Make the menu dropdown with:
 
     makeItDropdown(button, menu);
 
-TIPS
+QUESTIONS OR FEEDBACK?
 
-Make sure you set your dropdown div class as "hidden".
+    miss.liner@yahoo.com
