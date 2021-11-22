@@ -1,4 +1,4 @@
-## MAKE THIS: Dropdown
+## <make-this/dropdown>
 
 Simple module to add dropdown functionality to your menu. Created as part of The Odin Project
 coding curriculum.
@@ -24,13 +24,17 @@ coding curriculum.
     }
     ```
 
+3. Install:
+
+  `$ npm install make-this --save-dev`
+
 3. Import the function into your .js file:
 
-    `import { makeItDropdown } from "./makeit"`
+  `import { makeItDropdown } from "make-this/dropdown"`
 
 4. Make the menu dropdown with:
 
-    `makeItDropdown(button, menu);`
+  `makeItDropdown(button, menu);`
 
 ### Questions or feedback?
 
