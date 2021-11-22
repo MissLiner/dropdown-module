@@ -1,4 +1,4 @@
-## MAKE IT: Dropdown
+## MAKE THIS: Dropdown
 
 Simple module to add dropdown functionality to your menu. Created as part of The Odin Project
 coding curriculum.
