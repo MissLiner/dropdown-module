@@ -1,61 +1,60 @@
-//import { makeThisDropdownStd } from './dropdown_standard';
-
-
-
-function chooseDropdown(button, menu, div, mediaQuery, color) {
-  function makeThisDropdownStd(bu, me) {
-    function show(divName) {
-        divName.classList.remove('hidden');
-    }
-    function hide(divName) {
-        divName.classList.add('hidden');
-    }
-    function addClickOutListener(btn, mnu) {
-      document.addEventListener(
-        "click",
-        (e) => {
-          hide(mnu);
-          if (e.target === btn) {
-            e.stopPropagation();
-          }
-        },
-        {
-          once: true,
-          capture: true,
-        }
-      );
-    }
-    if (bu) {
-      bu.addEventListener('click', () => {
-        if (me.classList.contains('hidden')) {
-          show(me);
-          addClickOutListener(bu, me);
-        }
-      })
-    }
+function makeThisDropdownStd(button, menu) {
+  function show(divName) {
+      divName.classList.remove('hidden');
   }
-  function makeThisDropdownMob(button, menu, div, color) {
-    makeThisDropdownStd(button, menu);
-    function setBtnStyle(button, menu, color) {
-      button.style.backgroundColor = color;
-      let childEls = Array.from(menu.children);
-      childEls.forEach (element => {
-        element.style.color = 'white';
-        element.style.backgroundColor = 'transparent';
-        element.style.border = 'none';
-      })
-    }
-    function setMenuStyle(div) {
-      div.style.backgroundColor = color;
-    }
-  
-    setBtnStyle(button, menu, color);
-    setMenuStyle(div);
+  function hide(divName) {
+      divName.classList.add('hidden');
   }
-  if (mediaQuery.matches) {
+  function addClickOutListener(button, menu) {
+    document.addEventListener(
+      "click",
+      (e) => {
+        hide(menu);
+        if (e.target === button) {
+          e.stopPropagation();
+        }
+      },
+      {
+        once: true,
+        capture: true,
+      }
+    );
+  }
+  if (button) {
+    button.addEventListener('click', () => {
+      if (menu.classList.contains('hidden')) {
+        show(menu);
+        addClickOutListener(button, menu);
+      }
+    })
+  }
+}
+
+function setBtnStyle(button, menu) {
+  button.textContent = '+';
+  const childEls = Array.from(menu.children);
+  childEls.push(button);
+  childEls.forEach (element => {
+    element.style.color = 'white';
+    element.style.backgroundColor = 'transparent';
+    element.style.border = 'none';
+    element.style.fontSize = '2em';
+  })
+}
+function setMenuStyle(div, color) {
+  div.style.backgroundColor = color;
+  document.body.style.marginLeft = '0px';
+}
+
+function makeThisDropdownMob(button, menu, div, color) {
+  setBtnStyle(button, menu);
+  setMenuStyle(div, color);
+}
+
+function chooseDropdown(button, menu, div, isMobile, color) {
+  makeThisDropdownStd(button, menu);
+  if (isMobile === true) {
       makeThisDropdownMob(button, menu, div, color);
-  } else {
-      makeThisDropdownStd(button, menu);
   }
 }
 
