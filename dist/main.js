@@ -110,13 +110,13 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 
 /***/ }),
 
-/***/ "./src/dropdown.js":
-/*!*************************!*\
-  !*** ./src/dropdown.js ***!
-  \*************************/
+/***/ "./src/dropdowns.js":
+/*!**************************!*\
+  !*** ./src/dropdowns.js ***!
+  \**************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"makeThisDropdown\": () => (/* binding */ makeThisDropdown)\n/* harmony export */ });\nfunction makeThisDropdown(button, menu) {\n    function show(divName) {\n        divName.classList.remove('hidden');\n    }\n    function hide(divName) {\n        divName.classList.add('hidden');\n    }\n    function addClickOutListener(button, menu) {\n        document.addEventListener(\n          \"click\",\n          (e) => {\n            hide(menu);\n            if (e.target === button) {\n              e.stopPropagation();\n            }\n          },\n          {\n            once: true,\n            capture: true,\n          }\n        );\n      }\n\n    button.addEventListener('click', () => {\n        if (menu.classList.contains('hidden')) {\n            show(menu);\n            addClickOutListener(button, menu);\n        }\n    })\n}\n\n\n\n//# sourceURL=webpack://make-this/./src/dropdown.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"makeThisDropdownStd\": () => (/* binding */ makeThisDropdownStd),\n/* harmony export */   \"makeThisDropdownMob\": () => (/* binding */ makeThisDropdownMob)\n/* harmony export */ });\nfunction makeThisDropdownStd(button, menu) {\n    function show(divName) {\n        divName.classList.remove('hidden');\n    }\n    function hide(divName) {\n        divName.classList.add('hidden');\n    }\n    function addClickOutListener(button, menu) {\n        document.addEventListener(\n          \"click\",\n          (e) => {\n            hide(menu);\n            if (e.target === button) {\n              e.stopPropagation();\n            }\n          },\n          {\n            once: true,\n            capture: true,\n          }\n        );\n      }\n\n    button.addEventListener('click', () => {\n        if (menu.classList.contains('hidden')) {\n            show(menu);\n            addClickOutListener(button, menu);\n        }\n    })\n}\n\nfunction makeThisDropdownMob(button, menu) {\n  makeThisDropdownStd(button, menu);\n  menu.style.border = 'none';\n  menu.style.color = 'blue';\n}\n\n\n\n//# sourceURL=webpack://make-this/./src/dropdowns.js?");
 
 /***/ }),
 
@@ -126,7 +126,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _dropdown__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dropdown */ \"./src/dropdown.js\");\n\n\n\nconst dropdownMenu = document.getElementById('dropdown-menu');\nconst dropdownMenuBtn = document.getElementById('dropdown-menu-btn');\n\n(0,_dropdown__WEBPACK_IMPORTED_MODULE_1__.makeThisDropdown)(dropdownMenuBtn, dropdownMenu);\n\n//# sourceURL=webpack://make-this/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _dropdowns__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dropdowns */ \"./src/dropdowns.js\");\n\n\n\nconst dropdownMenu = document.getElementById('dropdown-menu');\nconst dropdownMenuBtn = document.getElementById('dropdown-menu-btn');\n\nconst mobileWidth = window.matchMedia('(max-width: 480px)');\n\nfunction chooseDropdown(mediaQuery) {\n    if (mediaQuery.matches) {\n        (0,_dropdowns__WEBPACK_IMPORTED_MODULE_1__.makeThisDropdownMob)(dropdownMenuBtn, dropdownMenu);\n    } else {\n        (0,_dropdowns__WEBPACK_IMPORTED_MODULE_1__.makeThisDropdownStd)(dropdownMenuBtn, dropdownMenu);\n    }\n}\nchooseDropdown(mobileWidth);\n\n//# sourceURL=webpack://make-this/./src/index.js?");
 
 /***/ })
 

@@ -29,8 +29,13 @@ function makeThisDropdownStd(button, menu) {
     })
 }
 
-function makeThisDropdownMob
+function makeThisDropdownMob(button, menu) {
+  makeThisDropdownStd(button, menu);
+  menu.style.border = 'none';
+  menu.style.color = 'blue';
+}
 
 export {
     makeThisDropdownStd,
+    makeThisDropdownMob,
 }
