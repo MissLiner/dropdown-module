@@ -1,5 +1,5 @@
 import './style.css';
-import { chooseDropdown, makeThisDropdownMob, makeThisDropdownStd } from './dropdowns';
+import { chooseDropdown, makeThisDropdownMob, makeThisDropdownStd } from './dropdown_responsive';
 
 
 
