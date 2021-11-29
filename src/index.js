@@ -1,16 +1,12 @@
 import './style.css';
-import { makeThisDropdownStd, makeThisDropdownMob } from './dropdowns';
+import { chooseDropdown, makeThisDropdownMob, makeThisDropdownStd } from './dropdowns';
 
+
+
+const mobileWidth = window.matchMedia('(max-width: 480px)');
+const dropdownDiv = document.getElementById('dropdown');
 const dropdownMenu = document.getElementById('dropdown-menu');
 const dropdownMenuBtn = document.getElementById('dropdown-menu-btn');
 
-const mobileWidth = window.matchMedia('(max-width: 480px)');
 
-function chooseDropdown(mediaQuery) {
-    if (mediaQuery.matches) {
-        makeThisDropdownMob(dropdownMenuBtn, dropdownMenu);
-    } else {
-        makeThisDropdownStd(dropdownMenuBtn, dropdownMenu);
-    }
-}
-chooseDropdown(mobileWidth);
+chooseDropdown(dropdownMenuBtn, dropdownMenu, dropdownDiv, mobileWidth, 'indigo');
