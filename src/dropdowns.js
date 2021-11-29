@@ -1,4 +1,4 @@
-function makeThisDropdown(button, menu) {
+function makeThisDropdownStd(button, menu) {
     function show(divName) {
         divName.classList.remove('hidden');
     }
@@ -29,6 +29,8 @@ function makeThisDropdown(button, menu) {
     })
 }
 
+function makeThisDropdownMob
+
 export {
-    makeThisDropdown,
+    makeThisDropdownStd,
 }

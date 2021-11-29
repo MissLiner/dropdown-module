@@ -1,5 +1,5 @@
 import './style.css';
-import { makeThisDropdown } from './dropdowns';
+import { makeThisDropdownStd } from './dropdowns';
 
 const dropdownMenu = document.getElementById('dropdown-menu');
 const dropdownMenuBtn = document.getElementById('dropdown-menu-btn');
@@ -13,7 +13,7 @@ function checkMedia(mediaQuery) {
     }
 }
 
-makeThisDropdown(dropdownMenuBtn, dropdownMenu);
+makeThisDropdownStd(dropdownMenuBtn, dropdownMenu);
 
 //create mobile dropdown
 //create desktop dropdown
