@@ -5,7 +5,7 @@ function hide(divName) {
   divName.classList.add('hidden');
 }
 
-function makeThisDropdownStd(button, menu) {
+function mtDropdownStd(button, menu) {
   function addClickOutListener(button, menu) {
     document.addEventListener(
       "click",
@@ -42,7 +42,7 @@ function setBtnStyle(div, color) {
   })
 }
 
-function makeThisDropdownMob(button, menu, div, color) {
+function mtDropdownMob(button, menu, div, color) {
   //MENU - ADD WEB STYLING
   div.style.position = 'absolute';
   div.style.bottom = '15px';
@@ -73,17 +73,17 @@ function makeThisDropdownMob(button, menu, div, color) {
   })
 }
 
-function chooseDropdown(button, menu, div, isMobile, color) {
+function mtDropdownResp(button, menu, div, isMobile, color) {
   
   if (isMobile === true) {
-    makeThisDropdownMob(button, menu, div, color);
+    mtDropdownMob(button, menu, div, color);
   } else {
-    makeThisDropdownStd(button, menu);
+    mtDropdownStd(button, menu);
   }
 }
 
 export {
-    //makeThisDropdownStd,
-    //makeThisDropdownMob,
-    chooseDropdown,
+    //mtDropdownStd,
+    //mtDropdownMob,
+    mtDropdownResp,
 }
