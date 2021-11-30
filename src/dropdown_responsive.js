@@ -32,23 +32,23 @@ function makeThisDropdownStd(button, menu) {
 }
 
 function setBtnStyle(div) {
-  const childEls1 = Array.from(div.children);
-  const childEls2 = [];
-  childEls1.forEach(element => {
-    if (div.children) {
-      const newArr = Array.from(div.children);
-      childEls2.concat(newArr);
+  //GET ARRAY OF ALL BUTON ELEMENTS
+  const childEls = Array.from(div.children);
+  childEls.forEach(element => {
+    if (element.firstChild) {
+      const newArr = Array.from(element.children);
+      childEls.push.apply(childEls, newArr);
     }
   })
-  childEls1.concat(childEls2);
-  //childEls.push(button);
-  childEls1.forEach (element => {
+  //APPLY WEB STYLING
+  childEls.forEach (element => {
     element.style.color = 'white';
     element.style.backgroundColor = 'transparent';
     element.style.border = 'none';
-    element.style.fontSize = '2em';
+    element.style.fontSize = 'larger';
   })
 }
+
 function setMenuStyle(div, color) {
   div.style.backgroundColor = color;
   document.body.style.marginLeft = '0px';
@@ -69,7 +69,6 @@ function makeThisDropdownMob(button, menu, div, color) {
     }
   })
   setBtnStyle(div);
-  setBtnStyle(menu);
   setMenuStyle(div, color);
   hide(button);
 }
