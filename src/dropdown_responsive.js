@@ -31,16 +31,18 @@ function makeThisDropdownStd(button, menu) {
   }
 }
 
-function setBtnStyle(div) {
+function setBtnStyle(div, color) {
   //GET ARRAY OF ALL BUTON ELEMENTS
-  const childEls = Array.from(div.children);
-  childEls.forEach(element => {
-    if (element.firstChild) {
-      const newArr = Array.from(element.children);
-      childEls.push.apply(childEls, newArr);
-    }
-  })
+
+  // childEls.forEach(element => {
+  //   if (element.firstChild) {
+  //     const newArr = Array.from(element.children);
+  //     childEls.push.apply(childEls, newArr);
+  //   }
+  // })
   //APPLY WEB STYLING
+  div.style.backgroundColor = color;
+  const childEls = Array.from(div.children);
   childEls.forEach (element => {
     element.style.color = 'white';
     element.style.backgroundColor = 'transparent';
@@ -49,28 +51,41 @@ function setBtnStyle(div) {
   })
 }
 
-function setMenuStyle(div, color) {
-  div.style.backgroundColor = color;
-  document.body.style.marginLeft = '0px';
-}
+// function setMenuStyle(div, color) {
+//   //div.style.backgroundColor = color;
+//   document.body.style.marginLeft = '0px';
+// }
 
 function makeThisDropdownMob(button, menu, div, color) {
   //ADD OPEN MENU ICON, HIDE MAIN BUTTON
+  div.style.position = 'absolute';
+  div.style.bottom = '15px';
+  div.style.right = '15px';
+  hide(button);
   const openMenuBtn = document.createElement('div');
   div.appendChild(openMenuBtn);
+
+  //OPEN MENU BUTTON - STYLE 
   openMenuBtn.textContent = '+';
+  openMenuBtn.style.textAlign = 'right';
+  openMenuBtn.style.backgroundColor = 'transparent';
+  openMenuBtn.style.color = 'indigo';
+  openMenuBtn.style.fontSize = '4em';
+  openMenuBtn.style.fontWeight = 'boldest';
+  //openMenuBtn.style.marginRight = '5px';
+  //OPEN MENU BUTTON - ADD FUNCTIONALITY
   openMenuBtn.addEventListener('click', () => {
-    if (button.classList.contains('hidden')) {
-      show(button);
+    if (menu.classList.contains('hidden')) {
+      //show(button);
       show(menu);
     } else {
-      hide(button);
+      //hide(button);
       hide(menu);
     }
   })
-  setBtnStyle(div);
-  setMenuStyle(div, color);
-  hide(button);
+  setBtnStyle(menu, color);
+  //setMenuStyle(div);
+  //hide(button);
 }
 
 function chooseDropdown(button, menu, div, isMobile, color) {
