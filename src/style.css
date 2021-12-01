@@ -22,3 +22,28 @@
     right: initial;
     width: fit-content;
 }
+
+#pic-frame-inner {
+    border: solid;
+    border-color:darkslateblue;
+    margin: auto;
+    margin-top: 10%;
+    width: 80%;
+}
+#pic-frame-inner:after {
+    content: '';
+    display: block;
+    padding-bottom: 100%;
+}
+#pic-frame-outer {
+    border: solid;
+    border-color: lightsteelblue;
+    margin: auto;
+    margin-top: 15%;
+    width: 50%;
+}
+#pic-frame-outer:after {
+    content: '';
+    display: block;
+    padding-bottom: 50%;
+}
