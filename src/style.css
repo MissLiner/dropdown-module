@@ -4,3 +4,19 @@
 .vertical {
     display: block;
 }
+.mobile-btn {
+    color: #79658F;
+    background-color:#79658F;
+    font-size: larger;
+    border: none;
+}
+.mobile-menu {
+    position: 'absolute';
+    bottom: '15px';
+    right: '15px';
+}
+.reg-btn {
+    position: 'initial';
+    bottom: 'initial';
+    right: 'initial';
+}
