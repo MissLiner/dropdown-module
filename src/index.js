@@ -1,9 +1,9 @@
 import './style.css';
-import { mtDropdownResp } from './dropdown_responsive';
+import { mtDropdownResp, styleProfile } from './dropdown_responsive';
 
 let mobileWidth = 480;
 const dropdownDiv = document.getElementById('dropdown');
 const dropdownMenu = document.getElementById('dropdown-menu');
 const dropdownMenuBtn = document.getElementById('dropdown-menu-btn');
 
-mtDropdownResp(dropdownMenuBtn, dropdownMenu, dropdownDiv, mobileWidth, 'indigo');
+mtDropdownResp(dropdownMenuBtn, dropdownMenu, dropdownDiv, mobileWidth, styleProfile);
