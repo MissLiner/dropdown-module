@@ -4,7 +4,7 @@
 .vertical {
     display: block;
 }
-.mobile-btn {
+.reg-btn {
     color: #79658F;
     background-color:#79658F;
     font-size: larger;
@@ -15,7 +15,7 @@
     bottom: '15px';
     right: '15px';
 }
-.reg-btn {
+.reg-menu {
     position: 'initial';
     bottom: 'initial';
     right: 'initial';

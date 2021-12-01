@@ -40,23 +40,33 @@ let styleProfile = {
 }
 
 function setStyle(subDiv, mainDiv, mobileQuery, style) {
-  subDiv.style.backgroundColor = style.bgColor;
+  subDiv.style.backgroundColor = style.backgroundColor;
   const subEls = Array.from(subDiv.children);
   const mainEls = Array.from(mainDiv.children);
   const allEls = mainEls.concat(subEls);
-  allEls.forEach(element => {
+  //allEls.forEach(element => {
     if (mobileQuery === true) {
-      element.classList.add('mobile-btn');
-      if (element.classList.contains('reg-btn')) {
-
-        element.classList.remove('reg-btn');
+      mainDiv.classList.add('mobile-menu');
+      if (mainDiv.classList.contains('reg-menu')) {
+        mainDiv.classList.remove('reg-menu');
       }
+      // element.classList.add('mobile-btn');
+      // if (element.classList.contains('reg-btn')) {
+      //   element.classList.remove('reg-btn');
+      // }
     } else {
-      element.classList.add('reg-btn');
-      if (element.classList.contains('mobile-btn')) {
-        element.classList.remove('mobile-btn');
+      mainDiv.classList.add('reg-menu');
+      if (mainDiv.classList.contains('mobile-menu')) {
+        mainDiv.classList.remove('mobile-menu');
       }
+      // element.classList.add('reg-btn');
+      // if (element.classList.contains('mobile-btn')) {
+      //   element.classList.remove('mobile-btn');
+      // }
     }
+  //})
+  allEls.forEach(element => {
+    element.classList.add('reg-btn');
   })
   for (const key in style) {
     if (style[key] === 'default') { 
