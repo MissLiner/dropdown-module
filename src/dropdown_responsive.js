@@ -33,7 +33,7 @@ function mtDropdownStd(button, menu) {
 }
 
 let styleProfile = {
-  color: 'white',               //white
+  color: 'default',               //white
   backgroundColor: 'default',   //#79658F
   border: 'default',            //none
   fontSize: 'default',          //larger
@@ -63,30 +63,27 @@ function setStyle(subDiv, mainDiv, mobileQuery, styleP) {
       return;
     } else {
       allEls.forEach (element => {
-        //`${element}.style.${key} = ${style[key]}`;
         element.style[key] = styleP[key];
       })
     }
   }
 }
 
-function mtDropdownMob(button, menu, div) {
+function addOpenBtn(button, menu, div) {
   if (!document.getElementById('open-menu-btn')) {
-    //OPEN MENU BUTTON - REPLACE MAIN BUTTON
+    //REPLACE MAIN BUTTON
     hide(button);
     const openMenuBtn = document.createElement('div');
     openMenuBtn.id = 'open-menu-btn';
     div.appendChild(openMenuBtn);
 
-    //OPEN MENU BUTTON - STYLE 
+    //STYLE 
     openMenuBtn.textContent = '+';
     openMenuBtn.style.textAlign = 'right';
-    // openMenuBtn.style.backgroundColor = 'transparent';
-    // openMenuBtn.style.color = color;
     openMenuBtn.style.fontSize = '4em';
     openMenuBtn.style.fontWeight = 'boldest';
 
-    //OPEN MENU BUTTON - ADD FUNCTIONALITY
+    //ADD FUNCTIONALITY
     openMenuBtn.addEventListener('click', () => {
       if (menu.classList.contains('hidden')) {
         show(menu);
@@ -98,9 +95,9 @@ function mtDropdownMob(button, menu, div) {
 }
 
 function mtDropdownResp(button, menu, div, mobileWidth, styleP) {
-  function checkSize(button, menu, div, mobileWidth, styleP) {
+  function createDropdown(button, menu, div, mobileWidth, styleP) {
     if (window.innerWidth <= mobileWidth) {
-      mtDropdownMob(button, menu, div);
+      addOpenBtn(button, menu, div);
     } else {
       mtDropdownStd(button, menu);
       if (button.classList.contains('hidden')) {
@@ -113,17 +110,16 @@ function mtDropdownResp(button, menu, div, mobileWidth, styleP) {
     }
     setStyle(menu, div, mobileWidth, styleP);
   }
-  checkSize(button, menu, div, mobileWidth, styleP);
+  createDropdown(button, menu, div, mobileWidth, styleP);
   let timeout;
   window.addEventListener('resize', function() {
     clearTimeout(timeout);
-    timeout = setTimeout(checkSize.bind(null, button, menu, div, mobileWidth, styleP), 600);
+    timeout = setTimeout(createDropdown.bind(null, button, menu, div, mobileWidth, styleP), 600);
   }, true) 
 }
 
 export {
     //mtDropdownStd,
-    //mtDropdownMob,
     mtDropdownResp,
     styleProfile,
 }
