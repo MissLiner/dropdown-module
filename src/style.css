@@ -26,29 +26,21 @@
 #pic-frame-inner {
     border: solid;
     border-color:darkslateblue;
+    height: 400px;
     margin: auto;
     margin-top: 10%;
-    width: 80%;
+    margin: 40px;
+    width: 600px;
 }
-#pic-frame-inner:after {
-    content: '';
-    display: block;
-    padding-bottom: 100%;
-}
+
 #pic-frame-outer {
     border: solid;
     border-color: lightsteelblue;
     margin: auto;
-    margin-top: 15%;
-    width: 50%;
-}
-#pic-frame-outer:after {
-    content: '';
-    display: block;
-    padding-bottom: 50%;
+    width: 700px;
 }
 #pic-slider {
+    display: flex;
     position: absolute;
-    height: 50%;
-    width: 50%;
+    height: 400px;
 }
