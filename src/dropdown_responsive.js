@@ -101,8 +101,6 @@ function mtDropdownResp(button, menu, div, mobileWidth, styleP) {
   function checkSize(button, menu, div, mobileWidth, styleP) {
     if (window.innerWidth <= mobileWidth) {
       mtDropdownMob(button, menu, div);
-      //const openMenuBtn = document.getElementById('open-menu-btn');
-      //setStyle(menu, div, mobileWidth, styleP);
     } else {
       mtDropdownStd(button, menu);
       if (button.classList.contains('hidden')) {
@@ -118,7 +116,6 @@ function mtDropdownResp(button, menu, div, mobileWidth, styleP) {
   checkSize(button, menu, div, mobileWidth, styleP);
   let timeout;
   window.addEventListener('resize', function() {
-    console.log('hi');
     clearTimeout(timeout);
     timeout = setTimeout(checkSize.bind(null, button, menu, div, mobileWidth, styleP), 600);
   }, true) 
