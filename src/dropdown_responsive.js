@@ -39,53 +39,38 @@ let styleProfile = {
   fontSize: 'default',          //larger
 }
 
-function setStyle(subDiv, mainDiv, mobileQuery, style) {
-  subDiv.style.backgroundColor = style.backgroundColor;
+function setStyle(subDiv, mainDiv, mobileQuery, styleP) {
+  subDiv.style.backgroundColor = styleP.backgroundColor;
   const subEls = Array.from(subDiv.children);
   const mainEls = Array.from(mainDiv.children);
   const allEls = mainEls.concat(subEls);
-  //allEls.forEach(element => {
-    if (mobileQuery === true) {
-      mainDiv.classList.add('mobile-menu');
-      if (mainDiv.classList.contains('reg-menu')) {
-        mainDiv.classList.remove('reg-menu');
-      }
-      // element.classList.add('mobile-btn');
-      // if (element.classList.contains('reg-btn')) {
-      //   element.classList.remove('reg-btn');
-      // }
-    } else {
-      mainDiv.classList.add('reg-menu');
-      if (mainDiv.classList.contains('mobile-menu')) {
-        mainDiv.classList.remove('mobile-menu');
-      }
-      // element.classList.add('reg-btn');
-      // if (element.classList.contains('mobile-btn')) {
-      //   element.classList.remove('mobile-btn');
-      // }
+  if (mobileQuery === true) {
+    mainDiv.classList.add('mobile-menu');
+    if (mainDiv.classList.contains('reg-menu')) {
+      mainDiv.classList.remove('reg-menu');
     }
-  //})
+  } else {
+    mainDiv.classList.add('reg-menu');
+    if (mainDiv.classList.contains('mobile-menu')) {
+      mainDiv.classList.remove('mobile-menu');
+    }
+  }
   allEls.forEach(element => {
     element.classList.add('reg-btn');
   })
-  for (const key in style) {
-    if (style[key] === 'default') { 
+  for (const key in styleP) {
+    if (styleP[key] === 'default') { 
       return;
     } else {
       allEls.forEach (element => {
-        `${element}.style.${key} = ${style[key]}`;
+        //`${element}.style.${key} = ${style[key]}`;
+        element.style[key] = styleP[key];
       })
     }
   }
 }
 
 function mtDropdownMob(button, menu, div) {
-  //MENU - ADD WEB STYLING
-  // div.style.position = 'absolute';
-  // div.style.bottom = '15px';
-  // div.style.right = '15px';
-  //setStyle(menu, mobileQuery, style);
-
   if (!document.getElementById('open-menu-btn')) {
     //OPEN MENU BUTTON - REPLACE MAIN BUTTON
     hide(button);
@@ -112,28 +97,28 @@ function mtDropdownMob(button, menu, div) {
   }
 }
 
-function mtDropdownResp(button, menu, div, mobileWidth, style) {
-  function checkSize(button, menu, div, mobileWidth, style) {
+function mtDropdownResp(button, menu, div, mobileWidth, styleP) {
+  function checkSize(button, menu, div, mobileWidth, styleP) {
     if (window.innerWidth <= mobileWidth) {
       mtDropdownMob(button, menu, div);
       const openMenuBtn = getElementById('open-menu-btn');
-      setStyle(openMenuBtn, menu, mobileWidth, style);
+      setStyle(openMenuBtn, menu, mobileWidth, styleP);
     } else {
       mtDropdownStd(button, menu);
       if (button.classList.contains('hidden')) {
         show(button);
         const openMenuBtn = document.getElementById('open-menu-btn');
         openMenuBtn.parentElement.removeChild(openMenuBtn);
-        div.style.position = 'inline';
+        div.styleP.position = 'inline';
       }
     }
-    setStyle(menu, div, mobileWidth, style);
+    setStyle(menu, div, mobileWidth, styleP);
   }
-  checkSize(button, menu, div, mobileWidth, style);
+  checkSize(button, menu, div, mobileWidth, styleP);
   let timeout;
   window.onresize = function() {
     clearTimeout(timeout);
-    timeout = setTimeout(checkSize(button, menu, div, mobileWidth, style), 400);
+    timeout = setTimeout(checkSize(button, menu, div, mobileWidth, styleP), 400);
     ;
   }
 }
