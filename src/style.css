@@ -11,12 +11,14 @@
     border: none;
 }
 .mobile-menu {
-    position: 'absolute';
-    bottom: '15px';
-    right: '15px';
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: fit-content;
 }
 .reg-menu {
-    position: 'initial';
-    bottom: 'initial';
-    right: 'initial';
+    position: initial;
+    bottom: initial;
+    right: initial;
+    width: fit-content;
 }

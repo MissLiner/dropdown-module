@@ -40,11 +40,11 @@ let styleProfile = {
 }
 
 function setStyle(subDiv, mainDiv, mobileQuery, styleP) {
-  subDiv.style.backgroundColor = styleP.backgroundColor;
+  mainDiv.style.backgroundColor = styleP['backgroundColor'];
   const subEls = Array.from(subDiv.children);
   const mainEls = Array.from(mainDiv.children);
   const allEls = mainEls.concat(subEls);
-  if (mobileQuery === true) {
+  if (window.innerWidth <= mobileQuery) {
     mainDiv.classList.add('mobile-menu');
     if (mainDiv.classList.contains('reg-menu')) {
       mainDiv.classList.remove('reg-menu');
@@ -101,26 +101,27 @@ function mtDropdownResp(button, menu, div, mobileWidth, styleP) {
   function checkSize(button, menu, div, mobileWidth, styleP) {
     if (window.innerWidth <= mobileWidth) {
       mtDropdownMob(button, menu, div);
-      const openMenuBtn = getElementById('open-menu-btn');
-      setStyle(openMenuBtn, menu, mobileWidth, styleP);
+      //const openMenuBtn = document.getElementById('open-menu-btn');
+      //setStyle(menu, div, mobileWidth, styleP);
     } else {
       mtDropdownStd(button, menu);
       if (button.classList.contains('hidden')) {
         show(button);
         const openMenuBtn = document.getElementById('open-menu-btn');
-        openMenuBtn.parentElement.removeChild(openMenuBtn);
-        div.styleP.position = 'inline';
+        if (openMenuBtn) {
+          openMenuBtn.parentElement.removeChild(openMenuBtn);
+        }
       }
     }
     setStyle(menu, div, mobileWidth, styleP);
   }
   checkSize(button, menu, div, mobileWidth, styleP);
   let timeout;
-  window.onresize = function() {
+  window.addEventListener('resize', function() {
+    console.log('hi');
     clearTimeout(timeout);
-    timeout = setTimeout(checkSize(button, menu, div, mobileWidth, styleP), 400);
-    ;
-  }
+    timeout = setTimeout(checkSize.bind(null, button, menu, div, mobileWidth, styleP), 600);
+  }, true) 
 }
 
 export {
