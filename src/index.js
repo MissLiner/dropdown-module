@@ -15,6 +15,7 @@ import nbpic02 from './pic_newborn-02.jpg';
 import nbpic03 from './pic_newborn-03.jpg';
 import nbpic04 from './pic_newborn-04.jpg';
 import nbpic05 from './pic_newborn-05.jpg';
+import { doc } from 'prettier';
 
 const pic1 = new Image();
 const pic2 = new Image();
@@ -31,5 +32,7 @@ pic5.src = nbpic05;
 const slider = document.getElementById('slider');
 
 const sliderPics = [pic1, pic2, pic3, pic4, pic5];
+const sliderBtnLeft = document.getElementById('slider-btn-left');
+const sliderBtnRight = document.getElementById('slider-btn-right');
 
-mtImageSlider(slider, sliderPics);
+mtImageSlider(slider, sliderBtnLeft, sliderBtnRight, sliderPics);
