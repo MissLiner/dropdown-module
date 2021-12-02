@@ -44,20 +44,27 @@
     margin: auto;
     width: 700px;
 }
-/* #pic-frame-outer {
-    background-color: transparent;
-    border: solid;
-    border-color:peachpuff;
-    border-top-width: 20%;
-    border-bottom-width: 20%;
-    border-left-width: 20%;
-    border-right-width: 20%;
-    width: 100%;
-    height: 100%;
-} */
-#pic-slider {
+#slider {
     display: flex;
     position: absolute;
     height: 400px;
-    z-index: -100;
+}
+.slider-btn {
+    background-color: transparent;
+    border: none;
+    color:rosybrown;
+    font-size: 48px;
+}
+#slider-btn-div {
+    height: auto;
+    left: 150px;
+    position: relative;
+    top: 20px;
+    width: 400px;
+}
+#slider-btn-left {
+    float: left;
+}
+#slider-btn-right {
+    float: right;
 }

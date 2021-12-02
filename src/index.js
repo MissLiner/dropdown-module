@@ -28,8 +28,8 @@ pic3.src = nbpic03;
 pic4.src = nbpic04;
 pic5.src = nbpic05;
 
-const picSlider = document.getElementById('pic-slider');
+const slider = document.getElementById('slider');
 
 const sliderPics = [pic1, pic2, pic3, pic4, pic5];
 
-mtImageSlider(picSlider, sliderPics);
+mtImageSlider(slider, sliderPics);
