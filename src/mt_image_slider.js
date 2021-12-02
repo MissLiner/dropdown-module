@@ -13,12 +13,11 @@ function mtImageSlider(frame, element, leftBtn, rightBtn, picArray) {
     function shiftSlider(direction, arr) {
         function dissolve(element) {
             element.classList.add('fade-out');
-            function hide() {
+            function hide(element) {
                 element.classList.remove('fade-out');
-                element.style.display === 'none';
+                element.style.display = 'none';
             }
-            let delayHide = setTimeout(hide, 3000);
-            delayHide;
+            setTimeout(function() { hide(element) }, 3000);
         }
         dissolve(arr[currentIndex]);
         if (direction === 'left') {
