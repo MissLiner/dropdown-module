@@ -1,17 +1,15 @@
-function mtImageSlider(element, leftBtn, rightBtn, picArray) {
-    let frameWidth = 0;
+function mtImageSlider(frame, element, leftBtn, rightBtn, picArray) {
+    let currentIndex = 0;
+    // add pics to slider, display first pic
     picArray.forEach(pic => {
         element.append(pic);
         pic.style.display = 'none';
-        if (pic.width > frameWidth) {
-            frameWidth = pic.width;
-        }
+        pic.classList.add('slider-pic');
+
     });
-    let currentIndex = 0;
     picArray[currentIndex].style.display = 'initial';
 
     function shiftSlider(direction) {
-        const currentPosition = slider.style.left;
         picArray[currentIndex].style.display = 'none';
         if (direction === 'left') {
             currentIndex -= 1;
@@ -19,6 +17,10 @@ function mtImageSlider(element, leftBtn, rightBtn, picArray) {
             currentIndex += 1;
         }
         picArray[currentIndex].style.display = 'initial';
+        const whiteSpace = frame.scrollWidth - picArray[currentIndex].width;
+        if (whiteSpace > 0) {
+            picArray[currentIndex].style.marginLeft = whiteSpace / 2;
+        }
         }
     leftBtn.addEventListener('click', () => {
         if (currentIndex !== 0) {

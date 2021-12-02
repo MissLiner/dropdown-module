@@ -27,6 +27,9 @@
     background-color: seashell;
     margin: 0px;
 }
+.slider-pic {
+    padding-left: 0px;
+}
 #pic-frame-inner {
     background-color: transparent;
     border: solid;
@@ -46,8 +49,12 @@
 }
 #slider {
     display: flex;
-    position: absolute;
     height: 400px;
+    align-content: center;
+    justify-content: center;
+    justify-items:center;
+    position: absolute;
+    text-align: center;
 }
 .slider-btn {
     background-color: transparent;
