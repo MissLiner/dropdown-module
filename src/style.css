@@ -27,11 +27,9 @@
     background-color: seashell;
     margin: 0px;
 }
-.slider-pic {
-    padding-left: 0px;
-}
+
 #pic-frame-inner {
-    background-color: transparent;
+    background-color: black;
     border: solid;
     border-color:darkslateblue;
     border-width: 4px;
@@ -48,6 +46,7 @@
     width: 700px;
 }
 #slider {
+    background-color:black;
     display: flex;
     height: 400px;
     align-content: center;
