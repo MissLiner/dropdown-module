@@ -1,5 +1,4 @@
 function mtImageSlider(frame, element, leftBtn, rightBtn, picArray) {
-    let currentIndex = 0;
     // add pics to slider, display first pic
     picArray.forEach(pic => {
         element.append(pic);
@@ -7,57 +6,35 @@ function mtImageSlider(frame, element, leftBtn, rightBtn, picArray) {
         pic.classList.add('slider-pic');
 
     });
+    let currentIndex = 0;
+    //let newIndex = 1;
     picArray[currentIndex].style.display = 'initial';
 
     function shiftSlider(direction, arr) {
-        function toggleDisplay(arr) {
-            setTimeout(() => {
-                if (arr[currentIndex].style.display === 'none') {
-                    arr[currentIndex].style.display = 'initial';
-                } else {
-                    arr[currentIndex].style.display = 'none';
-                }
-            }, 6000);
+        function dissolve(element) {
+            element.classList.add('fade-out');
+            function hide() {
+                element.classList.remove('fade-out');
+                element.style.display === 'none';
+            }
+            let delayHide = setTimeout(hide, 3000);
+            delayHide;
         }
-        arr[currentIndex].classList.add('fade-out');
-        toggleDisplay(arr);
+        dissolve(arr[currentIndex]);
         if (direction === 'left') {
             currentIndex -= 1;
+            arr[currentIndex].style.display = 'initial';
+
         } else {
             currentIndex += 1;
+            arr[currentIndex].style.display = 'initial';
         }
-        toggleDisplay(arr);
         const whiteSpace = frame.scrollWidth - picArray[currentIndex].width;
         if (whiteSpace > 0) {
             picArray[currentIndex].style.marginLeft = whiteSpace / 2;
         }
-        arr[currentIndex].style.opacity = '0';
+        //arr[currentIndex].style.opacity = '0';
     }
-        // function toggleEffect(element, effect) {
-        //     element.classList.add(effect);
-        //     //let timeout = 3000;
-        //     setTimeout(() => {
-        //         element.classList.remove(effect);
-        //     }, 3000);
-            // if (element.classList.contains(effect)) {
-            //     element.classList.remove(effect);
-            // } else {
-            //     element.classList.add(effect);
-            // }
-        //}
-        // function transition(element, effect) {
-        //     toggleDisplay(element);
-        //     toggleEffect(element, effect);
-        // }
-        // transition(picArray[currentIndex], 'hide-effect')
-        // if (direction === 'left') {
-        //     currentIndex -= 1;
-        // } else {
-        //     currentIndex += 1;
-        // }
-        // transition(picArray[currentIndex], 'show-effect')
-        //picArray[currentIndex].style.display = 'initial';
-
     leftBtn.addEventListener('click', () => {
         if (currentIndex !== 0) {
             shiftSlider('left', picArray);
