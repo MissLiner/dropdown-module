@@ -30,4 +30,6 @@ pic5.src = nbpic05;
 
 const picSlider = document.getElementById('pic-slider');
 
-mtImageSlider(picSlider, pic1, pic2, pic3, pic4, pic5);
+const sliderPics = [pic1, pic2, pic3, pic4, pic5];
+
+mtImageSlider(picSlider, sliderPics);

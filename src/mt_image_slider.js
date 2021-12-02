@@ -1,8 +1,10 @@
-function mtImageSlider(element, ...pics) {
-    element.append(...pics);
+function mtImageSlider(element, picArray) {
+    picArray.forEach(pic => {
+        element.append(pic);
+        pic.style.display = 'none';
+    });
+    picArray[0].style.display = 'initial';
 }
-
-//picSlider.append(pic1, pic2, pic3, pic4, pic5);
 
 export {
     mtImageSlider,
