@@ -14,6 +14,8 @@ function mtImageSlider(frame, element, leftBtn, rightBtn, dotHolder, picArray) {
     function appear(element) {
         function show(element) {
             element.classList.remove('hidden');
+            currentDot = document.getElementById('nav-dot-' + currentIndex);
+            currentDot.checked = 'true';
             setTimeout(() => {
                 centerPic(element, frame);
             }, 250);
@@ -40,7 +42,6 @@ function mtImageSlider(frame, element, leftBtn, rightBtn, dotHolder, picArray) {
         dotHolder.appendChild(navDot);
         //navigate w. nav dots
         navDot.addEventListener('click', () => {
-            //clearInterval(playShow);
             stopTimer();
             dissolve(picArray[currentIndex]);
             currentIndex = parseInt(pic.id.charAt(pic.id.length - 1));
@@ -73,21 +74,19 @@ function mtImageSlider(frame, element, leftBtn, rightBtn, dotHolder, picArray) {
         appear(arr[currentIndex]);
 
         //select current nav dot
-        currentDot = document.getElementById('nav-dot-' + currentIndex);
-        currentDot.checked = 'true';
+        // currentDot = document.getElementById('nav-dot-' + currentIndex);
+        // currentDot.checked = 'true';
         //currentIndex = newIndex;
     }
     //USE L/R BUTTONS TO NAVIGATE PICS
     leftBtn.addEventListener('click', () => {
         if (currentIndex !== 0) {
-            //clearInterval(playShow);
             stopTimer();
             shiftSlider('left', picArray);
         }
     })
     rightBtn.addEventListener('click', () => {
         if (currentIndex !== picArray.length - 1) {
-            //clearInterval(playShow);
             stopTimer();
             shiftSlider('right', picArray);
         }
