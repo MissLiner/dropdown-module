@@ -35,5 +35,6 @@ const picFrameInner = document.getElementById('pic-frame-inner');
 const sliderPics = [pic1, pic2, pic3, pic4, pic5];
 const sliderBtnLeft = document.getElementById('slider-btn-left');
 const sliderBtnRight = document.getElementById('slider-btn-right');
+const navDotContainer = document.getElementById('nav-dot-container');
 
-mtImageSlider(picFrameInner, slider, sliderBtnLeft, sliderBtnRight, sliderPics);
+mtImageSlider(picFrameInner, slider, sliderBtnLeft, sliderBtnRight, navDotContainer, sliderPics);

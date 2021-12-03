@@ -1,13 +1,20 @@
-function mtImageSlider(frame, element, leftBtn, rightBtn, picArray) {
+function mtImageSlider(frame, element, leftBtn, rightBtn, dotHolder, picArray) {
     // add pics to slider, display first pic
     let currentIndex = 0;
     let newIndex;
 
-    picArray.forEach(pic => {
+    picArray.forEach((pic, i) => {
         element.append(pic);
         
         pic.classList.add('hidden');
         pic.classList.add('slider-pic');
+        //CREATE NAV DOTS
+        const navDot = document.createElement('input');
+        navDot.id = 'nav-dot' + i;
+        navDot.class = 'nav-dot';
+        navDot.type = 'radio';
+        dotHolder.appendChild(navDot);
+
     });
     picArray[currentIndex].classList.remove('hidden');
     //picArray[currentIndex].style.display = 'initial';
@@ -62,6 +69,13 @@ function mtImageSlider(frame, element, leftBtn, rightBtn, picArray) {
             shiftSlider('right', picArray);
         }
     })
+ 
+
+    //FILL IN DOT CORRESPDNDING WITH EACH SLIDE WHEN SHOWING
+
+    //LINK EACH DOT TO CORRESPONDING SLIDE FOR NAV
+
+    //ADD SLIDESHOW OPTION
 }
 
 export {
