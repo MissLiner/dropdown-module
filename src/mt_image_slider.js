@@ -108,17 +108,15 @@ function mtImageSlider(frame, element, leftBtn, rightBtn, dotHolder, picArray) {
         }
         appear(arr[currentIndex]);
     }
-    let playShow = setInterval(advanceShow, 5000, picArray);
+
+    let playShow;
+    
     playBtn.addEventListener('click', () => {
-        if (playShow === null) {
-            playBtn.textContent = 'PAUSE';
-            playShow = setInterval(advanceShow, 5000, picArray);
-        } 
-        else if (isTimer === true) {
+        if (isTimer === true) {
             stopTimer();
         } else {
             playBtn.textContent = 'PAUSE';
-            playShow;
+            playShow = setInterval(advanceShow, 5000, picArray);
         }
     })
 }
