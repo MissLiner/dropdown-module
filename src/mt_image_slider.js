@@ -2,6 +2,7 @@ function mtImageSlider(frame, element, leftBtn, rightBtn, dotHolder, picArray) {
     // add pics to slider
     let currentIndex = 0;
     let newIndex;
+    let currentDot;
     function dissolve(element) {
         element.classList.add('fade-out');
         function hide(element) {
@@ -14,17 +15,19 @@ function mtImageSlider(frame, element, leftBtn, rightBtn, dotHolder, picArray) {
         function show(element) {
             element.classList.remove('hidden');
             setTimeout(() => {
-                centerPic(picArray[currentIndex], frame);
-            }, 1000);
+                centerPic(element, frame);
+            }, 250);
             element.classList.add('fade-in');
         }
         setTimeout(function() { show(element) }, 2000);
+
     }
 
     picArray.forEach((pic, i) => {
         element.append(pic);
         pic.classList.add('hidden');
         pic.classList.add('slider-pic');
+        pic.id = 'pic-' + i;
         //CREATE NAV DOTS
         const navDot = document.createElement('input');
         navDot.id = 'nav-dot-' + i;
@@ -35,6 +38,7 @@ function mtImageSlider(frame, element, leftBtn, rightBtn, dotHolder, picArray) {
         //navigate w. nav dots
         navDot.addEventListener('click', () => {
             dissolve(picArray[currentIndex]);
+            currentIndex = parseInt(pic.id.charAt(pic.id.length - 1));
             appear(pic);
         })
     });
@@ -60,8 +64,13 @@ function mtImageSlider(frame, element, leftBtn, rightBtn, dotHolder, picArray) {
             newIndex = currentIndex + 1; 
         }
         dissolve(arr[currentIndex]);
-        appear(arr[newIndex]);
         currentIndex = newIndex;
+        appear(arr[currentIndex]);
+
+        //select current nav dot
+        currentDot = document.getElementById('nav-dot-' + currentIndex);
+        currentDot.checked = 'true';
+        //currentIndex = newIndex;
     }
     //USE L/R BUTTONS TO NAVIGATE PICS
     leftBtn.addEventListener('click', () => {
@@ -74,7 +83,6 @@ function mtImageSlider(frame, element, leftBtn, rightBtn, dotHolder, picArray) {
             shiftSlider('right', picArray);
         }
     })
-    //FILL IN DOT CORRESPDNDING WITH EACH SLIDE WHEN SHOWING
 
     //ADD SLIDESHOW OPTION
 }
