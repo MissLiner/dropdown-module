@@ -1,55 +1,59 @@
 function mtImageSlider(frame, element, leftBtn, rightBtn, dotHolder, picArray) {
-    // add pics to slider, display first pic
+    // add pics to slider
     let currentIndex = 0;
     let newIndex;
+    function dissolve(element) {
+        element.classList.add('fade-out');
+        function hide(element) {
+            element.classList.remove('fade-out');
+            element.classList.add('hidden');
+        }
+        setTimeout(function() { hide(element) }, 2000);
+    }
+    function appear(element) {
+        function show(element) {
+            element.classList.remove('hidden');
+            setTimeout(() => {
+                centerPic(picArray[currentIndex], frame);
+            }, 1000);
+            element.classList.add('fade-in');
+        }
+        setTimeout(function() { show(element) }, 2000);
+    }
 
     picArray.forEach((pic, i) => {
         element.append(pic);
-        
         pic.classList.add('hidden');
         pic.classList.add('slider-pic');
         //CREATE NAV DOTS
         const navDot = document.createElement('input');
-        navDot.id = 'nav-dot' + i;
+        navDot.id = 'nav-dot-' + i;
         navDot.class = 'nav-dot';
         navDot.type = 'radio';
+        navDot.name = 'nav-dot' + picArray;
         dotHolder.appendChild(navDot);
-
+        //navigate w. nav dots
+        navDot.addEventListener('click', () => {
+            dissolve(picArray[currentIndex]);
+            appear(pic);
+        })
     });
+    //display first pic
     picArray[currentIndex].classList.remove('hidden');
-    //picArray[currentIndex].style.display = 'initial';
+    const navDot0 = document.getElementById('nav-dot-0');
+    navDot0.checked = 'true';
+    //CENTER PICS IF FRAME IS WIDER
     function centerPic(element, container) {
         const whiteSpace = container.scrollWidth - element.width;
         if (whiteSpace > 0) {
             element.style.marginLeft = whiteSpace / 2;
         }
     }
-    //centerPic(picArray[currentIndex], frame);
     setTimeout(() => {
         centerPic(picArray[currentIndex], frame);
     }, 1000);
-    
-
+    //CHANGE PIC
     function shiftSlider(direction, arr) {
-        function dissolve(element) {
-            element.classList.add('fade-out');
-            function hide(element) {
-                element.classList.remove('fade-out');
-                element.classList.add('hidden');
-            }
-            setTimeout(function() { hide(element) }, 2000);
-        }
-        function appear(element) {
-            function show(element) {
-                element.classList.remove('hidden');
-                setTimeout(() => {
-                    centerPic(picArray[currentIndex], frame);
-                }, 1000);
-                element.classList.add('fade-in');
-            }
-            setTimeout(function() { show(element) }, 2000);
-        }
-
         if (direction === 'left') {
             newIndex = currentIndex - 1;
         } else {
@@ -59,6 +63,7 @@ function mtImageSlider(frame, element, leftBtn, rightBtn, dotHolder, picArray) {
         appear(arr[newIndex]);
         currentIndex = newIndex;
     }
+    //USE L/R BUTTONS TO NAVIGATE PICS
     leftBtn.addEventListener('click', () => {
         if (currentIndex !== 0) {
             shiftSlider('left', picArray);
@@ -69,11 +74,7 @@ function mtImageSlider(frame, element, leftBtn, rightBtn, dotHolder, picArray) {
             shiftSlider('right', picArray);
         }
     })
- 
-
     //FILL IN DOT CORRESPDNDING WITH EACH SLIDE WHEN SHOWING
-
-    //LINK EACH DOT TO CORRESPONDING SLIDE FOR NAV
 
     //ADD SLIDESHOW OPTION
 }
