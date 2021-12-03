@@ -85,8 +85,11 @@
 #slider-btn-right {
     float: right;
 }
-
+.hidden {
+    display: none;
+}
 .fade-in {
+    /* display: initial; */
     animation: fadeIn ease 3s;
     -webkit-animation: fadeIn ease 3s;
     -moz-animation: fadeIn ease 3s;
