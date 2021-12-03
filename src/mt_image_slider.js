@@ -27,6 +27,7 @@ function mtImageSlider(frame, element, leftBtn, rightBtn, dotHolder, picArray) {
         clearInterval(playShow);
         playShow = null;
         isTimer = false;
+        playBtn.textContent = 'PLAY';
     }
     picArray.forEach((pic, i) => {
         element.append(pic);
@@ -110,11 +111,13 @@ function mtImageSlider(frame, element, leftBtn, rightBtn, dotHolder, picArray) {
     let playShow = setInterval(advanceShow, 5000, picArray);
     playBtn.addEventListener('click', () => {
         if (playShow === null) {
+            playBtn.textContent = 'PAUSE';
             playShow = setInterval(advanceShow, 5000, picArray);
         } 
         else if (isTimer === true) {
             stopTimer();
         } else {
+            playBtn.textContent = 'PAUSE';
             playShow;
         }
     })
