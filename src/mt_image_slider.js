@@ -9,7 +9,7 @@ function mtImageSlider(frame, element, leftBtn, rightBtn, dotHolder, picArray) {
             element.classList.remove('fade-out');
             element.classList.add('hidden');
         }
-        setTimeout(function() { hide(element) }, 2000);
+        setTimeout(function() { hide(element) }, 1000);
     }
     function appear(element) {
         function show(element) {
@@ -21,7 +21,7 @@ function mtImageSlider(frame, element, leftBtn, rightBtn, dotHolder, picArray) {
             }, 250);
             element.classList.add('fade-in');
         }
-        setTimeout(function() { show(element) }, 2000);
+        setTimeout(function() { show(element) }, 1000);
     }
     function stopTimer() {
         clearInterval(playShow);
