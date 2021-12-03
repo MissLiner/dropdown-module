@@ -22,11 +22,11 @@ function mtImageSlider(frame, element, leftBtn, rightBtn, dotHolder, picArray) {
             element.classList.add('fade-in');
         }
         setTimeout(function() { show(element) }, 2000);
-
     }
     function stopTimer() {
         clearInterval(playShow);
         playShow = null;
+        isTimer = false;
     }
     picArray.forEach((pic, i) => {
         element.append(pic);
@@ -72,11 +72,6 @@ function mtImageSlider(frame, element, leftBtn, rightBtn, dotHolder, picArray) {
         dissolve(arr[currentIndex]);
         currentIndex = newIndex;
         appear(arr[currentIndex]);
-
-        //select current nav dot
-        // currentDot = document.getElementById('nav-dot-' + currentIndex);
-        // currentDot.checked = 'true';
-        //currentIndex = newIndex;
     }
     //USE L/R BUTTONS TO NAVIGATE PICS
     leftBtn.addEventListener('click', () => {
@@ -94,7 +89,9 @@ function mtImageSlider(frame, element, leftBtn, rightBtn, dotHolder, picArray) {
     //ADD SLIDESHOW OPTION
     const playBtn = document.getElementById('play-btn');
     let lastIndex;
+    let isTimer = false;
     function advanceShow(arr) {
+        isTimer = true;
         dissolve(arr[currentIndex]);
         if (currentIndex !== arr.length - 1) {
             if (lastIndex && lastIndex > currentIndex && currentIndex !== 0) {
@@ -114,8 +111,12 @@ function mtImageSlider(frame, element, leftBtn, rightBtn, dotHolder, picArray) {
     playBtn.addEventListener('click', () => {
         if (playShow === null) {
             playShow = setInterval(advanceShow, 5000, picArray);
+        } 
+        else if (isTimer === true) {
+            stopTimer();
+        } else {
+            playShow;
         }
-        playShow;
     })
 }
 
