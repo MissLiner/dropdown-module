@@ -1,14 +1,27 @@
 function mtImageSlider(frame, element, leftBtn, rightBtn, picArray) {
     // add pics to slider, display first pic
-    picArray.forEach(pic => {
-        element.append(pic);
-        pic.classList.add('hidden');
-        pic.classList.add('slider-pic');
-
-    });
     let currentIndex = 0;
     let newIndex;
+
+    picArray.forEach(pic => {
+        element.append(pic);
+        
+        pic.classList.add('hidden');
+        pic.classList.add('slider-pic');
+    });
     picArray[currentIndex].classList.remove('hidden');
+    //picArray[currentIndex].style.display = 'initial';
+    function centerPic(element, container) {
+        const whiteSpace = container.scrollWidth - element.width;
+        if (whiteSpace > 0) {
+            element.style.marginLeft = whiteSpace / 2;
+        }
+    }
+    //centerPic(picArray[currentIndex], frame);
+    setTimeout(() => {
+        centerPic(picArray[currentIndex], frame);
+    }, 1000);
+    
 
     function shiftSlider(direction, arr) {
         function dissolve(element) {
@@ -17,14 +30,17 @@ function mtImageSlider(frame, element, leftBtn, rightBtn, picArray) {
                 element.classList.remove('fade-out');
                 element.classList.add('hidden');
             }
-            setTimeout(function() { hide(element) }, 3000);
+            setTimeout(function() { hide(element) }, 2000);
         }
         function appear(element) {
             function show(element) {
                 element.classList.remove('hidden');
+                setTimeout(() => {
+                    centerPic(picArray[currentIndex], frame);
+                }, 1000);
                 element.classList.add('fade-in');
             }
-            setTimeout(function() { show(element) }, 3000);
+            setTimeout(function() { show(element) }, 2000);
         }
 
         if (direction === 'left') {
