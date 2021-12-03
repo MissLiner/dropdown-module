@@ -93,11 +93,12 @@ function mtImageSlider(frame, element, leftBtn, rightBtn, dotHolder, picArray) {
     })
     //ADD SLIDESHOW OPTION
     const playBtn = document.getElementById('play-btn');
+    let lastIndex;
     function advanceShow(arr) {
-        let lastIndex;
         dissolve(arr[currentIndex]);
         if (currentIndex !== arr.length - 1) {
             if (lastIndex && lastIndex > currentIndex && currentIndex !== 0) {
+                lastIndex = currentIndex;
                 currentIndex -= 1;
             }
             else {
