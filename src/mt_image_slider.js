@@ -117,6 +117,7 @@ function mtImageSlider(frame, element, leftBtn, rightBtn, dotHolder, picArray) {
         } else {
             playBtn.textContent = 'PAUSE';
             playShow = setInterval(advanceShow, 5000, picArray);
+            isTimer = true;
         }
     })
 }
