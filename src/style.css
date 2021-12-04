@@ -1,3 +1,5 @@
+
+
 .hidden {
     display: none;
 }
@@ -26,9 +28,17 @@
     position: absolute;
 }
 
-* {
+
+
+body {
     background-color: seashell;
     margin: 0px;
+}
+h1 {
+    font-family: helvetica, arial, sans-serif;
+    font-size: 24px;
+    margin-top: 30px;
+    text-align: center;
 }
 
 #hide-effect {
@@ -57,12 +67,15 @@
     border-color: lightsteelblue;
     height: 500px;
     margin: auto;
+    margin-top: 20px;
     width: 700px;
 }
 #play-btn {
     background-color: white;
     border-color:rosybrown;
     border-radius: 10px;
+    height: 40px;
+    width: 80px;
 }
 #slider {
     background-color:black;
